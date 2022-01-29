@@ -1,32 +1,45 @@
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int index = 0;
-        boolean isIndexCorrect = false;
-        String[] tab = {"Mateusz", "Marek", "Marzena", "Krzyś", "Daniel", "Mirek"};
-        Scanner scan = new Scanner(System.in);
+        int[] tab = {0, 1, 2, 3, 4};
+        List<Integer> integerList = null;
+        try{
+            System.out.println(5/0);
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+        }
+
 
         try {
-            Integer str = null;
-            while(!isIndexCorrect){
-                str = Integer.parseInt(scan.next());
-                isIndexCorrect = valid(str);
-            }
-
-            index = str;
-
+            System.out.print(tab[7]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e);
         }
-        catch(NumberFormatException e){
-            System.out.println("Cannot parse the string to integer");
 
+        try{
+
+            integerList.add(2);
+        } catch (NullPointerException e) {
+            System.out.println(e);
         }
-        finally{
-            if(isIndexCorrect) System.out.println(tab[index]);
+
+        try{
+            Scanner scanner = new Scanner(System.in);
+            scanner.next();
+            int a = 2/2;
+
+        } catch (ArithmeticException e ) {
+        } catch (InputMismatchException e) {
+        } catch (IllegalCallerException e) {
+
+        } finally {
+            System.out.println("Dziekuję za ten wspaniały semestr");
         }
+
+
+
     }
-    public static boolean valid(Integer a) {
-        return (a < 6) && (a >= 0);
-    }
-
 }
