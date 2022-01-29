@@ -1,8 +1,32 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Square square = new Square(2);
-        Rectangle rectangle = new Rectangle(2,4);
-        System.out.println("Pole: "+ square.field()+ " Obwód: "+ square.circuit());
-        System.out.println("Pole: "+rectangle.field()+ " Obwód: "+ rectangle.circuit());
+        int index = 0;
+        boolean isIndexCorrect = false;
+        String[] tab = {"Mateusz", "Marek", "Marzena", "Krzyś", "Daniel", "Mirek"};
+        Scanner scan = new Scanner(System.in);
+
+        try {
+            Integer str = null;
+            while(!isIndexCorrect){
+                str = Integer.parseInt(scan.next());
+                isIndexCorrect = valid(str);
+            }
+
+            index = str;
+
+        }
+        catch(NumberFormatException e){
+            System.out.println("Cannot parse the string to integer");
+
+        }
+        finally{
+            if(isIndexCorrect) System.out.println(tab[index]);
+        }
     }
+    public static boolean valid(Integer a) {
+        return (a < 6) && (a >= 0);
+    }
+
 }
