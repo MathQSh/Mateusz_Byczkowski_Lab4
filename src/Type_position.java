@@ -1,0 +1,3 @@
+public enum Type_position {
+    SECRETARY, ACCOUNTANT, PRODUCTION_WORKER, DEALER
+}
